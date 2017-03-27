@@ -1,5 +1,6 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export default {
@@ -24,6 +25,13 @@ export default {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: [/node_modules/]
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
       }
     ]
   },
@@ -36,6 +44,8 @@ export default {
       chunks: ['main'],
       cache: false
     }),
+
+    new ExtractTextPlugin('css/style.css'),
 
     new CopyWebpackPlugin([
       { from: 'manifest.json' },
