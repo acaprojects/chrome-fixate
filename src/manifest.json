@@ -1,0 +1,22 @@
+{
+  "name": "Fixate",
+  "description": "A simple, reusable, web app wrapper.",
+  "version": "0.1",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["js/background.js"]
+    }
+  },
+  "icons": {
+      "16": "img/aca-16.png",
+      "128": "img/aca-128.png"
+  },
+  "kiosk_enabled" : true,
+  "permissions": [
+    "power",
+    "webview",
+    "app.window.fullscreen",
+    "app.window.fullscreen.overrideEsc"
+  ]
+}
