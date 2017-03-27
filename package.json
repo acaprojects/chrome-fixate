@@ -2,7 +2,7 @@
   "name": "chrome-fixate",
   "version": "1.0.0",
   "main": "src/js/background.js",
-  "description": "A simple, reusable, Chrome web app wrapper",
+  "description": "A simple, reusable, web app wrapper for Chrome OS",
   "author": "Kim Burgess <kim@acaprojects.com>",
   "license": "MIT",
   "scripts": {
