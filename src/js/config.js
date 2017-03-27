@@ -19,7 +19,6 @@ module.exports = {
       if (chrome.runtime.lastError) {
         reject(chrome.runtime.lastError.string);
       } else {
-        console.log(items);
         resolve(items[key]);
       }
     })
