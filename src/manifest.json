@@ -16,6 +16,7 @@
   "permissions": [
     "power",
     "webview",
+    "storage",
     "app.window.fullscreen",
     "app.window.fullscreen.overrideEsc"
   ]

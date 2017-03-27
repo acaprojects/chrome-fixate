@@ -11,11 +11,15 @@
   "eslintConfig": {
     "extends": "eslint:recommended",
     "env": {
+      "es6": true,
       "node": true,
       "browser": true
     },
     "globals": {
       "chrome": true
+    },
+    "rules": {
+      "no-console": 0
     },
     "parserOptions": {
       "ecmaVersion": 6,
