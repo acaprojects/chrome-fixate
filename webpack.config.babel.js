@@ -33,7 +33,8 @@ export default {
     new HtmlWebpackPlugin({
       title: 'Fixate',
       filename: 'main.html',
-      chunks: ['main']
+      chunks: ['main'],
+      cache: false
     }),
 
     new CopyWebpackPlugin([
