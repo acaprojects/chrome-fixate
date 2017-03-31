@@ -32,6 +32,13 @@ export default {
           fallback: 'style-loader',
           use: 'css-loader'
         })
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader!sass-loader'
+        })
       }
     ]
   },
@@ -39,8 +46,7 @@ export default {
   plugins: [
 
     new HtmlWebpackPlugin({
-      title: 'Fixate',
-      filename: 'main.html',
+      template: 'index.ejs',
       chunks: ['main'],
       cache: false
     }),
