@@ -2,27 +2,26 @@ import * as config from './config';
 import '../css/main.scss';
 
 
-function showSetup() {
-  const form = document.querySelector('#settings');
-  form.classList.remove('hidden');
+document.body.onload = () => {
 
-  config.set('url', 'http://www.example.com')
-}
-
-function showWebview(url) {
   const webview = document.querySelector('webview');
-  webview.setAttribute('src', url);
-  webview.classList.remove('hidden');
-}
+  const setupForm = document.querySelector('#settings');
+  const urlInput = document.querySelector('#settings input[name="url"]');
 
-function renderUI() {
+  setupForm.onsubmit = e => {
+    config.set('url', urlInput.value);
+    e.preventDefault();
+  }
+
   config.get('url').then(url => {
     if (url) {
-      showWebview(url);
+      // show the bound URL as a webview
+      webview.setAttribute('src', url);
+      webview.classList.remove('hidden');
     } else {
-      showSetup();
+      // nothing bound, await config
+      setupForm.classList.remove('hidden')
     }
   });
-}
 
-document.body.onload = renderUI;
+}

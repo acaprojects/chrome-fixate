@@ -15,9 +15,10 @@ webview {
 }
 
 form {
-  @include transition(opacity, 0.4s, ease);
+  @include transition(opacity, 1.4s, ease);
 }
 
 .hidden {
   opacity: 0;
+  display: none;
 }
