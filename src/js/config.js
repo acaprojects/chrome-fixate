@@ -1,8 +1,7 @@
 const storage = chrome.storage.local;
 
-module.exports = {
-
-  set: (key, value) => new Promise((resolve, reject) => {
+function set(key, value) {
+  return new Promise((resolve, reject) => {
     const setting = {};
     setting[key] = value;
     storage.set(setting, () => {
@@ -12,9 +11,11 @@ module.exports = {
         resolve(value);
       }
     })
-  }),
+  });
+}
 
-  get: key => new Promise((resolve, reject) => {
+function get(key) {
+  return new Promise((resolve, reject) => {
     storage.get(key, items => {
       if (chrome.runtime.lastError) {
         reject(chrome.runtime.lastError.string);
@@ -22,6 +23,13 @@ module.exports = {
         resolve(items[key]);
       }
     })
-  })
+  });
+}
+
+module.exports = {
+
+  setUrl: url => set('url', url),
+
+  getUrl: () => get('url')
 
 }

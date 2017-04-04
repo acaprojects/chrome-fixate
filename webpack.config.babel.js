@@ -46,7 +46,7 @@ export default {
   plugins: [
 
     new HtmlWebpackPlugin({
-      template: 'index.ejs',
+      template: 'index.html',
       chunks: ['main'],
       cache: false
     }),
