@@ -18,11 +18,16 @@ webview {
   height: 100%;
   top: 0;
   left: 0;
-  @include transition(opacity, 3s, ease);
+  @include transition(opacity, 1.6s, ease);
 }
 
 input {
-  @include transition(opacity, 1.4s, ease);
+  position: absolute;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include transition(opacity, 0.8s, ease);
 }
 
 .hidden {
