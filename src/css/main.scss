@@ -1,8 +1,15 @@
 @import 'transition';
 
+$aca-pink: #d83754;
+
 body {
   margin: 0;
-  background: #000000;
+  background-color: $aca-pink;
+  background-image: url(../img/aca.svg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 20%;
 }
 
 webview {
@@ -11,10 +18,10 @@ webview {
   height: 100%;
   top: 0;
   left: 0;
-  @include transition(opacity, 5s, ease);
+  @include transition(opacity, 3s, ease);
 }
 
-form {
+input {
   @include transition(opacity, 1.4s, ease);
 }
 
