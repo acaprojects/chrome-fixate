@@ -4,7 +4,8 @@ import '../css/main.scss';
 
 
 const webview = document.querySelector('webview');
-const urlInput = document.querySelector('input[name="url"]');
+const setup = document.querySelector('#setup');
+const urlInput = document.querySelector('#setup input[name="url"]');
 
 
 /**
@@ -24,14 +25,14 @@ function showSetup(callback, prefill = null) {
   urlInput.onkeydown = captureKey('Enter', e => e.target.blur());
   urlInput.onblur = () => callback(urlInput.value);
 
-  urlInput.classList.remove('hidden');
+  setup.classList.remove('hidden');
 }
 
 /**
  * Display the wrapped web app.
  */
 function showWebview(url) {
-  urlInput.classList.add('hidden');
+  setup.classList.add('hidden');
   webview.classList.add('hidden');
 
   webview.setAttribute('src', url);
