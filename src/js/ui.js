@@ -17,17 +17,24 @@ module.exports = {
     webview.classList.add('hidden');
     webview.stop();
 
+    const defaultPrefill = 'https://';
     if (prefill) {
       urlInput.value = prefill;
       urlInput.focus();
-      urlInput.selectionStart = urlInput.selectionEnd = urlInput.value.length;
     } else {
       urlInput.value = '';
-      urlInput.onfocus = () => urlInput.value = 'https://';
+      urlInput.onfocus = () => urlInput.value = defaultPrefill;
     }
 
     urlInput.onkeydown = captureKey('Enter', e => e.target.blur());
-    urlInput.onblur = () => callback(urlInput.value);
+
+    urlInput.onblur = () => {
+      if (urlInput.value === defaultPrefill) {
+        urlInput.value = ''
+      } else {
+        callback(urlInput.value);
+      }
+    }
 
     setup.classList.remove('hidden');
   },
