@@ -15,6 +15,8 @@ function showSetup(callback, prefill = null) {
 
   if (prefill) {
     urlInput.value = prefill;
+    urlInput.focus();
+    urlInput.selectionStart = urlInput.selectionEnd = urlInput.value.length;
   } else {
     urlInput.onfocus = () => urlInput.value = 'https://';
   }
