@@ -1,7 +1,6 @@
 import * as config from './config';
 import * as ui from './ui';
 import { captureKey, validate } from './util';
-import '../css/main.scss';
 
 
 /**

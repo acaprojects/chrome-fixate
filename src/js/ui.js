@@ -1,4 +1,5 @@
 import { captureKey } from './util';
+import '../css/main.scss';
 
 
 // DOM references
