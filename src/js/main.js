@@ -1,66 +1,39 @@
 import * as config from './config';
+import * as ui from './ui';
 import { captureKey, validate } from './util';
 import '../css/main.scss';
 
 
-const webview = document.querySelector('webview');
-const setup = document.querySelector('#setup');
-const urlInput = document.querySelector('#setup input[name="url"]');
-
-
 /**
- * Display the setup / URL entry view
+ * Binder for attaching the app to a specific URL.
+ *
+ * Call to transition the app to it's bound / running state.
  */
-function showSetup(callback, prefill = null) {
-  webview.classList.add('hidden');
-
-  if (prefill) {
-    urlInput.value = prefill;
-    urlInput.focus();
-    urlInput.selectionStart = urlInput.selectionEnd = urlInput.value.length;
-  } else {
-    urlInput.onfocus = () => urlInput.value = 'https://';
-  }
-
-  urlInput.onkeydown = captureKey('Enter', e => e.target.blur());
-  urlInput.onblur = () => callback(urlInput.value);
-
-  setup.classList.remove('hidden');
-}
-
-/**
- * Display the wrapped web app.
- */
-function showWebview(url) {
-  setup.classList.add('hidden');
-  webview.classList.add('hidden');
-
-  webview.setAttribute('src', url);
-
-  webview.onloadstop = e => e.target.classList.remove('hidden');
-}
-
-
-/**
- * Attempt to bind the app to a web app URL.
- */
-function bind(target) {
-  console.log(`Binding to ${target}`);
-  validate(target)
+const bind = url =>
+  validate(url)
     .then(config.setUrl)
-    .then(showWebview)
-    .catch(url => showSetup(bind, url))
-}
+    .then(ui.showWebview)
+    .catch(setup);
 
 /**
- * Nuke the current bining.
+ * Composed setup function with the binder pre-injected.
+ *
+ * Call to transition the app to the setup screen.
  */
-function unbind() {
-  console.log('Clearing binding');
-  bind(null);
-}
+const setup = prefill => ui.showSetup(bind, prefill);
+
+/**
+ * Reconfigure the current URL binding.
+ */
+const rebind = () => config.getUrl().then(setup);
+
+/**
+ * Nuke the current binding.
+ */
+const unbind = () => config.setUrl(null).then(setup);
 
 
-document.body.onkeydown = captureKey('Escape', unbind);
+document.body.addEventListener('keydown', captureKey('Escape', rebind));
+document.body.addEventListener('keydown', captureKey('~', unbind));
 
 document.body.onload = () => config.getUrl().then(bind);
