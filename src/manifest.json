@@ -1,7 +1,7 @@
 {
   "name": "Fixate",
   "description": "A simple, reusable, web app wrapper for Chrome OS.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "app": {
     "background": {

@@ -44,7 +44,7 @@ gulp.task('watch', () =>
 );
 
 gulp.task('release', ['build'], () =>
-  gulp.src(`${paths.distDir}*`)
+  gulp.src(`${paths.distDir}**/*`)
     .pipe(zip(`${name}_${version}.zip`))
     .pipe(gulp.dest(paths.releaseDir))
 );
