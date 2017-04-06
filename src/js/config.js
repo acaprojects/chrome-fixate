@@ -1,5 +1,8 @@
 const storage = chrome.storage.local;
 
+/**
+ * Set a value in the chrome OS local storage.
+ */
 function set(key, value) {
   return new Promise((resolve, reject) => {
     const setting = {};
@@ -10,10 +13,13 @@ function set(key, value) {
       } else {
         resolve(value);
       }
-    })
+    });
   });
 }
 
+/**
+ * Lookup a stored value.
+ */
 function get(key) {
   return new Promise((resolve, reject) => {
     storage.get(key, items => {
@@ -22,7 +28,7 @@ function get(key) {
       } else {
         resolve(items[key]);
       }
-    })
+    });
   });
 }
 
@@ -32,4 +38,4 @@ module.exports = {
 
   getUrl: () => get('url')
 
-}
+};

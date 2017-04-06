@@ -30,11 +30,11 @@ module.exports = {
 
     urlInput.onblur = () => {
       if (urlInput.value === defaultPrefill) {
-        urlInput.value = ''
+        urlInput.value = '';
       } else {
         callback(urlInput.value);
       }
-    }
+    };
 
     setup.classList.remove('hidden');
   },
@@ -51,4 +51,4 @@ module.exports = {
     webview.onloadstop = e => e.target.classList.remove('hidden');
   }
 
-}
+};

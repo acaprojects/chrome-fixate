@@ -12,7 +12,7 @@ module.exports = {
         handler(e);
         e.preventDefault();
       }
-    }
+    };
   },
 
   /**
@@ -22,4 +22,4 @@ module.exports = {
     isWebUri(url) ? resolve(url) : reject(url);
   })
 
-}
+};
