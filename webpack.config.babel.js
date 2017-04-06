@@ -44,6 +44,11 @@ export default {
         test: /\.svg/,
         loader: 'url-loader',
         include: [/img/]
+      },
+      {
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        include: [/fonts/],
       }
     ]
   },

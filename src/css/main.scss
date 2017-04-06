@@ -1,15 +1,23 @@
-@import 'transition';
+@font-face {
+  font-family: 'Segoe UI Light';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/segoe-ui-light.woff') format('woff');
+}
 
 $aca-pink: #d83754;
+$aca-dark-grey: #414858;
+$aca-font-stack: 'Segoe UI Light', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
 
 body {
   margin: 0;
-  background-color: $aca-pink;
+  font-family: $aca-font-stack;
+  background-color: $aca-dark-grey;
   background-image: url(../img/aca.svg);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: bottom right;
-  background-size: 20%;
+  background-size: 12vh;
 }
 
 #wrapper {
@@ -18,34 +26,44 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  @include transition(opacity, 1.6s, ease);
+  transition: 1.6s ease;
 }
 
 #setup {
   position: absolute;
   width: 60%;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @include transition(opacity, 0.8s, ease);
+  transition: 0.8s ease;
 
   input {
+    position: absolute;
     width: 100%;
-    font-size: 1.8em;
+    font-size: 3vw;
     border: none;
     color: #fff;
     background-color: transparent;
-    text-rendering: optimizeLegibility;
     text-align: center;
-  }
+    font-family: $aca-font-stack;
+    text-rendering: optimizeLegibility;
+    transition: 0.35s ease;
 
-  input::placeholder {
-    color: #fff;
-    opacity: 0.5;
-  }
+    &:focus {
+      margin-top: -1.2em;
+    }
 
-  input:hover, input:focus, input:active {
-    outline:none;
+    &::placeholder {
+      color: #fff;
+      opacity: 0.5;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline:none;
+    }
+
   }
 
 }
