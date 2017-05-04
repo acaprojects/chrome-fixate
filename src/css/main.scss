@@ -8,19 +8,20 @@
 $aca-pink: #d83754;
 $aca-dark-grey: #414858;
 $aca-font-stack: 'Segoe UI Light', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+$input-text: #fff;
 
 body {
-  margin: 0;
-  font-family: $aca-font-stack;
-  background-color: $aca-dark-grey;
-  background-image: url(../img/aca.svg);
   background-attachment: fixed;
-  background-repeat: no-repeat;
+  background-color: $aca-dark-grey;
+  background-image: url('../img/aca.svg');
   background-position: bottom right;
+  background-repeat: no-repeat;
   background-size: 12vh;
+  font-family: $aca-font-stack;
+  margin: 0;
 }
 
-#wrapper {
+.wrapper {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -29,39 +30,39 @@ body {
   transition: 1.6s ease;
 }
 
-#setup {
+.setup {
   position: absolute;
   width: 60%;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: 0.8s ease;
+  transition: .8s ease;
 
   input {
     position: absolute;
     width: 100%;
     font-size: 3vw;
-    border: none;
-    color: #fff;
+    border: 0;
+    color: $input-text;
     background-color: transparent;
     text-align: center;
     font-family: $aca-font-stack;
     text-rendering: optimizeLegibility;
-    transition: 0.35s ease;
+    transition: .35s ease;
 
     &:focus {
       margin-top: -1.2em;
     }
 
     &::placeholder {
-      color: #fff;
-      opacity: 0.5;
+      color: $input-text;
+      opacity: .5;
     }
 
     &:hover,
     &:focus,
     &:active {
-      outline:none;
+      outline: none;
     }
 
   }

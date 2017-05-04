@@ -4,8 +4,8 @@ import '../css/main.scss';
 
 // DOM references
 const webview = document.querySelector('webview');
-const setup = document.querySelector('#setup');
-const urlInput = document.querySelector('#setup input[name="url"]');
+const setup = document.querySelector('.setup');
+const urlInput = document.querySelector('.setup input[name="url"]');
 
 
 module.exports = {
