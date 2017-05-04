@@ -8,6 +8,14 @@
       "scripts": ["js/background.js"]
     }
   },
+  "commands": {
+    "exit-app": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L"
+      },
+      "description": "Exit the app"
+    }
+  },
   "icons": {
       "16": "img/aca-16.png",
       "128": "img/aca-128.png"
