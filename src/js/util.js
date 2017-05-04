@@ -8,7 +8,7 @@ module.exports = {
    */
   captureKey: (key, handler) => {
     return e => {
-      if (e.key == key) {
+      if (e.key === key) {
         handler(e);
         e.preventDefault();
       }
@@ -18,8 +18,8 @@ module.exports = {
   /**
    * Validate a url.
    */
-  validate: url => new Promise((resolve, reject) => {
-    isWebUri(url) ? resolve(url) : reject(url);
-  })
+  validate: url => new Promise((resolve, reject) =>
+    isWebUri(url) ? resolve(url) : reject(url)
+  )
 
 };

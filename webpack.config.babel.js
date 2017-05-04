@@ -48,7 +48,7 @@ export default {
       {
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
-        include: [/fonts/],
+        include: [/fonts/]
       }
     ]
   },

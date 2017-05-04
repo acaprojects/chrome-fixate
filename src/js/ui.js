@@ -23,7 +23,7 @@ module.exports = {
       urlInput.focus();
     } else {
       urlInput.value = '';
-      urlInput.onfocus = () => urlInput.value = defaultPrefill;
+      urlInput.onfocus = () => { urlInput.value = defaultPrefill; };
     }
 
     urlInput.onkeydown = captureKey('Enter', e => e.target.blur());
